@@ -48,7 +48,7 @@ def main():
         (check_reboot, "Pending reboot."),
         (check_root_full, "Root partition Full."),
         (check_no_network, "No working network."),
-        (check_cpu_constrained), "CPU load too high"
+        (check_cpu_constrained, "CPU load too high")
     ]
     everything_ok = True
     for check, msg in checks:
