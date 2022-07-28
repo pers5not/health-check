@@ -18,7 +18,7 @@ def check_disk_full(disk, min_absolute, min_percent):
     percent_free = 100 * du.free / du.total
     # Calculate how many free gygabates
     gygabates_free = du.free / 2 ** 30
-    if percent_free < min_percent or gygabates_free < min_absolute:
+    if gygabates_free < min_absolute  or percent_free < min_percent :
         return True
     return False
 
