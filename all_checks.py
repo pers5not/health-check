@@ -5,7 +5,6 @@ import sys
 import shutil
 
 
-
 def check_reboot():
     """Returns True if the computer has a pending reboot"""
     return os.path.exists("/run/reboot-required")
@@ -18,7 +17,7 @@ def check_disk_full(disk, min_gb, min_percent):
     percent_free = 100 * du.free / du.total
     # Calculate how many free gygabates
     gygabates_free = du.free / 2 ** 30
-    if percent_free < min_percent or gygabates_free < min_gb:
+    if gygabates_free < min_gb or percent_free < min_percent:
         return True
     return False
 
@@ -33,5 +32,6 @@ def main():
 
     print("Everything ok.")
     sys.exit(0)
+
 
 main()
